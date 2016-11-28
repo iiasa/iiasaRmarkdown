@@ -1,0 +1,114 @@
+---
+output: 
+  iiasaRmarkdown::iiasawp:
+    pandoc_args: --natbib
+    latex_engine: pdflatex
+## If YSSP use yssp: true
+yssp: false
+yy: yy
+nnn: nnn
+author:
+  - name: Victor Maus
+    affiliation: International Institute for Applied Systems Analysis (IIASA)
+    symbol: 1
+    email: maus@iiasa.ac.at
+    biography: > 
+      Victor Maus joined IIASA's Ecosystems Services and Management (ESM) Program as a Research Scholar in September 2016. His research will contribute to improving land cover data sets and developing a dynamic database to support model calibration and validation for GLOBIOM, EPIC, G4M, and BeWhere. His main research interests are geoinformatics, environmental modeling, and Big Data Analytics. \newline Dr. Maus received his PhD from the National Institute for Space Research (INPE), Brazil, with a focus on satellite image time series analysis and land cover changes in the Brazilian Amazon. Prior to joining IIASA, he was working on Big Earth Observation Data Analytics at the Institute for Geoinformatics (IFGI), University of Münster, in Germany. In 2013, he participated in the Young Scientists Summer Program (YSSP) at IIASA.
+programleader:
+  - name: Program Leader Name
+    email: name@iiasa.ac.at
+    program: Ecosystems Services and Management
+## For Latex code in the title use double backslash \\
+title:
+  line1: "R markdown for IIASA Working Paper"
+## Edit or remove the fields for abstract, foreword, or acknowledgments. 
+abstract: >
+  This vignette demonstrates some of the basic you'll need to create your IIASA Working Paper or YSSP report combining \proglang{R} markdown and \proglang{LaTex}.
+foreword: > 
+acknowledgments: > 
+abouttheauthors: true
+tableofcontents: true
+listoftables: false
+listoffigures: false
+bibliography: references.bib
+preamble: >
+  \usepackage{amsmath}
+vignette: >
+  %\VignetteIndexEntry{R markdown for IIASA Working Paper}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{}
+---
+
+# Introduction 
+
+Markdown documents are fully reproducible and work with several programming languages (e.g. Python, SQL), for more details see [@RStudio:2016;@GitHub:2014]. 
+
+# Code formatting
+
+## Using Latex commands 
+
+Use the latex commands:
+
+* Programming language \proglang{R}
+* Package or library \pkg{plyr}
+* Code snippets \code{print("abc")}
+
+## Code in the text 
+
+Code can be inserted in the text using grave accent ( $\grave{}$ ), e.g. $\grave{}$ x=1 $\grave{}$ will look like this `x=1`. 
+
+## Code chunck
+
+A code chunk can be inserted in regular \proglang{R} markdown blocks using the keyboard shortcut \code{Ctrl + Alt + I} (OS X: \code{Cmd + Option + I}) or by typing the chunk, such that 
+
+$\grave{}$$\;\grave{}$$\;\grave{}${r \<chunk-name\> [, options]}
+
+\<R-code\>
+
+$\grave{}$$\;\grave{}$$\;\grave{}$
+
+The example below creates an \proglang{R} chunk named \code{simple-r-code}. I set the following options, \code{echo=TRUE} to show the chunk code, \code{eval=TRUE} to execute the \proglang{R} code, and \code{results="markup"} to show the results in markup. To see all chunk options type \code{?knitr::opts\_chunk}.
+
+$\grave{}$$\;\grave{}$$\;\grave{}${r simple-r-code, echo=TRUE, eval=TRUE, results='markup'}
+
+x <- seq(1, 10, length.out = 100)
+
+round(x,2)
+
+$\grave{}$$\;\grave{}$$\;\grave{}$
+
+The chunk above will produce the following result in the text
+
+```{r simple-r-code, echo=TRUE, eval=TRUE, results='markup'}
+x <- seq(1, 10, length.out = 100)
+round(x,2)
+```
+
+## \proglang{R} plot
+
+An \proglang{R} plot can be inserted in regular \proglang{R} markdown blocks including caption. Below I show an example using plot to create a figure in the text. 
+
+$\grave{}$$\;\grave{}$$\;\grave{}${r simple-r-plot, echo=TRUE, eval=TRUE, results="markup", fig.cap='\\proglang{R} plot example.'}
+
+y <- cos(x)
+
+plot(x, y, type = "l", col = "red")
+
+lines(x, -y, col = "blue")
+
+$\grave{}$$\;\grave{}$$\;\grave{}$
+
+This chunk produces the Figure \ref{fig:simple-r-plot} the code below. The label of the figure is automatically created as \code{fig:<chunk-name>}. To refer to the produced figure you can use the \proglang{Latex} command \code{\textbackslash ref\{fig:simple-r-plot\}}.
+
+```{r simple-r-plot, echo=TRUE, eval=TRUE, results='markup', fig.cap='\\proglang{R} plot example. For \\code{LaTex} code in the caption use double backslash \\textbackslash\\textbackslash.',  fig.pos="ht"}
+y <- cos(x)
+plot(x, y, type = "l", col = "red")
+lines(x, -y, col = "blue")
+```
+
+
+
+
+
+

@@ -1,0 +1,90 @@
+\documentclass[11pt]{./config/iiir}
+\usepackage[numbers,compress]{natbib}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{datetime}
+\usepackage{xcolor}
+$preamble$
+
+\hypersetup{
+  linkcolor  = black!70!black,
+  citecolor  = blue!70!black,
+  urlcolor   = blue!70!black,
+  colorlinks = true,
+}
+
+\hyphenpenalty=100000 % To avoid hyphenation altogether
+\sloppy % Force margin break 
+
+\addto\captionsenglish{% Replace "english" with the language you use
+  \renewcommand{\contentsname}%
+    {Contents}%
+}
+
+\let\proglang=\textsf
+\let\code=\texttt
+\newcommand{\pkg}[1]{{\fontseries{b}\selectfont #1}}
+
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH] \THEYEAR}
+  
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+$if(yssp)$
+  \iiir[yssp]{$yy$}{$nnn$}{$if(date)$$date$$else$\monthyeardate\today$endif$}
+$else$
+  \iiir{$yy$}{$nnn$}{$if(date)$$date$$else$\monthyeardate\today$endif$}
+$endif$
+
+\iiauthor{$for(author)$$author.name$$if(author.email)$ ($author.email$)$endif$ \protect\footnotemark[$author.symbol$]{}$sep$, $endfor$}
+
+$for(author)$$if(author.affiliation)$\protect\footnotetext[$author.symbol$]{$author.affiliation$}$endif$$endfor$
+
+\iititle{$title.line1$\\$if(title.line2)$$title.line2$$endif$}
+
+\iiapproved{$for(programleader)$ $programleader.name$ ($programleader.email$)}{Leader}{$programleader.program$$endfor$}
+
+\begin{document}
+
+\iicoverpage
+
+$if(foreword)$\iifrontsection{Foreword}$foreword$$endif$
+
+$if(acknowledgments)$\iifrontsection{Acknowledgments}$acknowledgments$$endif$
+
+$if(abouttheauthors)$
+  \iifrontsection{About the Authors}
+  $for(author)$
+  $if(author.biography)$\subsection*{$author.name$}$author.biography$$endif$
+  $endfor$
+$endif$
+
+$if(abstract)$\iifrontsection{Abstract}$abstract$$endif$
+
+$if(tableofcontents)$\iitableofcontents{Contents}$endif$
+
+$if(listoftables)$\iilistoftables$endif$
+
+$if(listoffigures)$\iilistoffigures$endif$
+
+\iibody
+
+$body$
+
+\bibliographystyle{unsrtnat}
+
+$if(natbib)$
+$if(bibliography)$
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+$endif$
+$endif$
+
+$if(biblatex)$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+$endif$
+
+\end{document}
+
+

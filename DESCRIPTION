@@ -1,0 +1,18 @@
+Package: iiasaRmarkdown
+Type: Package
+Title: IIASA R Markdown template
+Version: 0.0.1.9000
+Date: 2016-11-20
+Authors@R: c(person('Victor', 'Maus', role = c('aut', 'cre'), email = 'maus@iiasa.ac.at'))
+Author: Victor Maus [aut, cre]
+Maintainer: Victor Maus <maus@iiasa.ac.at>
+Description: Template for creating IIASA Working Paper or YSSP report combining R Markdown and LaTex.
+License: GPL-3
+LazyData: TRUE
+Imports:
+    rmarkdown
+Suggests:
+    knitr,
+    rticles
+RoxygenNote: 5.0.1
+VignetteBuilder: knitr

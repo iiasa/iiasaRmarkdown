@@ -1,0 +1,6 @@
+name: IIASA Working Paper
+description: >
+ Template for creating Working Papers to IIASA
+create_dir: true
+graphics: yes
+

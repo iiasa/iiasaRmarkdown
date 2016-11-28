@@ -1,0 +1,6 @@
+language: R
+os: 
+  - osx
+  - linux
+  
+  
