@@ -1,5 +1,6 @@
 language: r
-pandoc_version: 1.16
+before_install:
+  - tlmgr install index
 os: 
   - linux
   
