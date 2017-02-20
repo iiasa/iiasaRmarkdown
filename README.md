@@ -2,14 +2,23 @@
 R markdown for IIASA Working Paper
 ======
 
+[![Build Status](https://travis-ci.org/vwmaus/dtwSat.png?branch=master)](https://travis-ci.org/vwmaus/dtwSat) [![License](http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
+
 ### Installation
 
-To use the IIASA Working Paper format your first have to install the R package `devtools` 
+To use markdown and the IIASA Working Paper template, please install the following packages: 
+
+1. Install Latex packages according to your operating system, [Linux](https://www.tug.org/texlive/), [Windows](https://www.tug.org/texlive/), or [MacOSX](https://tug.org/mactex/). 
+
+2. Install the universal document converter [pandoc](http://pandoc.org/installing.html). Please, follow the instructions according to the operating system.
+
+3. Open an R terminal and install the R package `devtools` 
+
 ```r
 install.packages("devtools")
 ```
 
-Then use the function `devtools::install_github` to install iiasaRmarkdown
+4. Use the function `devtools::install_github` to install `iiasaRmarkdown`
 
 ```r
 devtools::install_github("iiasa/iiasaRmarkdown")
