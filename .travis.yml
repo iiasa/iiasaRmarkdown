@@ -1,6 +1,6 @@
 language: R
+pandoc_version: 1.16
 os: 
-  - osx
   - linux
   
   
