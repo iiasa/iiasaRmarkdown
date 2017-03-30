@@ -7,7 +7,7 @@ Authors@R: c(person('Victor', 'Maus', role = c('aut', 'cre'), email = 'maus@iias
 Author: Victor Maus [aut, cre]
 Maintainer: Victor Maus <maus@iiasa.ac.at>
 Description: Template for creating IIASA Working Paper or YSSP report combining R Markdown and LaTex.
-License: GPL-3
+License: GPL (>= 2) | file LICENSE
 LazyData: TRUE
 Imports:
     rmarkdown
